@@ -1,3 +1,4 @@
+const port = process.env.PORT || 5000
 const express = require('express'),
 http = require('http'),
 app = express(),
@@ -46,8 +47,8 @@ socket.on('messagedetection', (senderNickname,messageContent) => {
 
 
 
-server.listen(3000,()=>{
+server.listen(port,()=>{
 
-console.log('Node app is running on port 3000');
+console.log('Node app is running on port $port');
 
 });
