@@ -10,10 +10,10 @@ res.send('Server is running')
 });
 io.on('connection', (socket) => {
 console.log('user connected')
-socket.on('join', function(userNickname) {
-        console.log(userNickname +" : has joined the chat "  );
-        socket.broadcast.emit('userjoinedthechat',userNickname +" : has joined");
-    });
+//socket.on('join', function(userNickname) {
+//        console.log(userNickname +" : has joined the chat "  );
+//        socket.broadcast.emit('userjoinedthechat',userNickname +" : has joined");
+//    });
 socket.on('messagedetection', (id,x,y) => {
         //create a message object 
        let  message = {"x":x, "id":id,"y":y}
@@ -21,11 +21,6 @@ socket.on('messagedetection', (id,x,y) => {
        io.emit('message', message );
      
       });
- socket.on('disconnect', function() {
-    console.log( ' user has left ')
-    socket.broadcast.emit("disconnect"," user has left ") 
-
-});
 });
 server.listen(port,()=>{
 console.log('Node app running');
