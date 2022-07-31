@@ -14,9 +14,9 @@ console.log('user connected')
 //        console.log(userNickname +" : has joined the chat "  );
 //        socket.broadcast.emit('userjoinedthechat',userNickname +" : has joined");
 //    });
-socket.on('messagedetection', (id,x,y) => {
+socket.on('messagedetection', (id,x,y,devid) => {
         //create a message object 
-       let  message = {"x":x, "id":id,"y":y}
+       let  message = {"x":x, "id":id,"y":y,"devid":devid}
           // send the message to the client side  
        io.emit('message', message );
      
