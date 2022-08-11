@@ -21,6 +21,11 @@ socket.on('messagedetection', (id,x,y,devid) => {
        io.emit('message', message );
      
       });
+socket.on('played', (dane,devid) => {
+       let  play_res = {"dane":dane,devid":devid}
+          // send the message to the client side  
+       io.emit('play_res', play_res );
+      });
 });
 server.listen(port,()=>{
 console.log('Node app running');
