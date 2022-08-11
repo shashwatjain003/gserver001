@@ -21,8 +21,8 @@ socket.on('messagedetection', (id,x,y,devid) => {
        io.emit('message', message );
      
       });
-socket.on('played', (dane,devid) => {
-       let  play_res = {"dane":dane,devid":devid}
+socket.on('played', (dane,devids) => {
+       let  play_res = {"dane":dane,devids":devids}
           // send the message to the client side  
        io.emit('play_res', play_res );
       });
